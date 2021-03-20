@@ -25,12 +25,14 @@ const techReducer = (state = initialState, action) => {
     case ADD_TECH:
       return {
         ...state,
-        techs: [...state, payload],
+        techs: [...state.techs, payload],
+        loading: false,
       };
     case DELETE_TECH:
       return {
         ...state,
         techs: state.techs.filter((tech) => tech.id !== payload),
+        loading: false,
       };
 
     case SET_LOADING:
